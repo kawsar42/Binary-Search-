@@ -1,3 +1,4 @@
+/* find the the value from reverse sorted order*/
 #include<bits/stdc++.h>
 #define ll long long int
 using namespace std;
@@ -10,6 +11,7 @@ void solve()
     {
         cin >> v[i];
     }
+    sort(v.rbegin(),v.rend());
     ll l=0,r=n-1;
     ll x;
     cin >> x;
@@ -20,17 +22,16 @@ void solve()
         if(v[mid]==x)
         {
             cout << "X is Found: " << endl;
-            cout << "value: " <<  v[mid] << " " << index:" << mid << endl;
+            cout << "value: " <<  v[mid] << " " << " index:" << mid << endl;
             return ;
-
         }
         else if(v[mid]<x)
         {
-            l=mid+1;
-        }
-        else
-        {
             r=mid-1;
+        }
+        else if(x<v[mid])
+        {
+            l=mid+1;
         }
 
     }
@@ -43,3 +44,11 @@ int main()
     solve();
     return 0;
 }
+/*
+6
+ 1 2 6 6 2 3
+ 2
+
+
+
+*/
